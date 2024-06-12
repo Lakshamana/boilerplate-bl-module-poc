@@ -1,0 +1,4 @@
+# include:
+#   - project: 'templates/pipeline'
+#     ref: main
+#     file: '/gitlab-ci/lambda/template-default.yml'
