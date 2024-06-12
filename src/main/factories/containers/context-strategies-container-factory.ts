@@ -1,8 +1,8 @@
 import { Tokens, UserEnum } from '@/domain/enums'
-import { UserStrategy, ContextUser, BrandStrategy, CreatorStrategy } from '@/application/services/user'
+import { UserStrategy, ContextUser } from '@/application/services/user'
 import { ContextUserContainerContract } from '@/application/contracts/containers'
 import { ContextUserContainer } from '@/infra/containers'
-import { Inject } from 'module-poc'
+import { Inject } from '@lakshamana-pocs/registry'
 import { CreatorModelRequest } from '@/domain/models/creator'
 import { BrandModelRequest } from '@/domain/models/brand'
 
@@ -10,10 +10,10 @@ export class ContextStrategiesContainerFactory {
   private static instance: ContextStrategiesContainerFactory|undefined
 
   @Inject(Tokens.brandStrategy)
-  private readonly brandStrategy: BrandStrategy<BrandModelRequest>
+  private readonly brandStrategy: UserStrategy<BrandModelRequest>
 
   @Inject(Tokens.creatorStrategy)
-  private readonly creatorStrategy: CreatorStrategy<CreatorModelRequest>
+  private readonly creatorStrategy: UserStrategy<CreatorModelRequest>
 
   private constructor () {}
 

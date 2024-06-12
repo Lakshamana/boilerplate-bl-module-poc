@@ -4,9 +4,10 @@ import {
   loadByEmailTransformer,
   loadByIdTransformer
 } from '@/infra/database/transformers/user-repository'
-import { Inject } from 'module-poc'
+import { Inject, Injectable } from '@lakshamana-pocs/registry'
 import { Tokens } from '@/domain/enums'
 
+@Injectable()
 export class UserRepository implements LoadUserByEmailRepository, LoadEmailByIdRepository {
   @Inject(Tokens.catalystDbConnection)
   private readonly connection: DatabaseConnection
@@ -15,7 +16,7 @@ export class UserRepository implements LoadUserByEmailRepository, LoadEmailByIdR
     const { email } = params
 
     const rows: LoadUserByEmailRepository.Entity[] =
-    await this.connection.execute<[]>(`Select id, name, email from brand_users where email='${email}'`)
+    await this.connection.execute<[]>(`Select id, name, email, token from colab_user where email='${email}'`)
 
     return loadByEmailTransformer(rows)
   }

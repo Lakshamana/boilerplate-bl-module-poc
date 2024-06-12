@@ -7,8 +7,9 @@ import { CreatorModelRequest, CreatorModelResponse } from '@/domain/models/creat
 import {
   CheckEmailUseCase
 } from '@/domain/usecases/user'
-import { Inject } from 'module-poc'
+import { Inject, Injectable } from '@lakshamana-pocs/registry'
 
+@Injectable()
 export class CreatorStrategy<T extends CreatorModelRequest> implements UserStrategy<T> {
   @Inject(Tokens.userRepository)
   private readonly loadEmailByIdRepo: LoadEmailByIdRepository

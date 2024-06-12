@@ -9,6 +9,5 @@ export namespace LoadUserUseCase{
     email: string
   }
 
-  export type Result = UserEntity | Error | {}
-
+  export type Result = UserEntity | Error
 }

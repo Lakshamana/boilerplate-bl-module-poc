@@ -6,7 +6,8 @@ export const loadByEmailTransformer = (users: User[]): User | false => {
   const arrayUsers = users.map((user) => ({
     id: user.id,
     name: user.name,
-    email: user.email
+    email: user.email,
+    token: user.token
   }))
   return (arrayUsers.length > 0) ? arrayUsers[0] : false
 }

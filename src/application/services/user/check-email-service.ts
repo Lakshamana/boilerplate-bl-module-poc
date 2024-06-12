@@ -1,7 +1,7 @@
 import { ContextUserContainerContract } from '@/application/contracts/containers'
 import { Tokens } from '@/domain/enums'
 import { CheckEmailUseCase } from '@/domain/usecases/user'
-import { Inject, Injectable } from 'module-poc'
+import { Inject, Injectable } from '@lakshamana-pocs/registry'
 
 @Injectable()
 export class CheckEmailService implements CheckEmailUseCase {

@@ -1,7 +1,7 @@
 import { MicroserviceError } from '@/application/errors'
 import { RequestHelper } from '@/application/contracts/http/request-helper'
 import { AxiosHttpClient } from './axios/axios-http-adapter'
-import { Injectable, InjectVariable } from 'module-poc'
+import { Injectable, InjectVariable } from '@lakshamana-pocs/registry'
 
 @Injectable()
 export class RequestHelperAdapter implements RequestHelper {
@@ -10,14 +10,20 @@ export class RequestHelperAdapter implements RequestHelper {
   @InjectVariable()
   private readonly domainName: string
 
+  @InjectVariable('CATALYST_API_KEY')
+  private readonly apiKey: string
+
   async send<T> (params: RequestHelper.Params): Promise<T | Error> {
-    const { body, url, method, headers } = params
+    const { body, url, method, headers = {} } = params
 
     try {
       const httpResponse = await this.httpClient.request<T>({
         url: `${this.domainName}${url}`,
         method: method ?? 'post',
-        headers,
+        headers: {
+          ...headers,
+          'x-api-key': this.apiKey
+        },
         body
       })
 

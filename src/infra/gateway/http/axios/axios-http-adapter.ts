@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponse, HttpClient } from '@/application/contracts/http'
 import axios, { AxiosResponse } from 'axios'
-import { Injectable } from 'module-poc'
+import { Injectable } from '@lakshamana-pocs/registry'
 
 @Injectable()
 export class AxiosHttpClient implements HttpClient {

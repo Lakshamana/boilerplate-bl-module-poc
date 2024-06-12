@@ -6,7 +6,7 @@ import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult
 } from 'aws-lambda/trigger/api-gateway-proxy'
-import { Container } from 'module-poc'
+import { Container } from '@lakshamana-pocs/registry'
 
 type Route = { event: APIGatewayProxyEvent, route: string, method: Method }
 type Method = 'POST' | 'GET' | 'PUT' | 'DELETE' | 'PATCH'

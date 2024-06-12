@@ -2,12 +2,12 @@
   "type": "commonjs",
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.423.0",
+    "@lakshamana-pocs/registry": "^1.0.0",
     "aws-sdk": "^2.1123.0",
     "axios": "^0.27.2",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.0",
     "module-alias": "^2.2.2",
-    "module-poc": "file:../modules-poc/module-poc-1.0.0.tgz",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.2.2",
     "rimraf": "^3.0.2",

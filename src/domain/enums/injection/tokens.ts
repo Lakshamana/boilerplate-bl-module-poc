@@ -1,4 +1,5 @@
 export enum Tokens {
+  httpClient = 'httpClient',
   databaseTransactionManager = 'databaseTransactionManager',
   exampleValidation = 'exampleValidation',
   contextUserContainer = 'contextUserContainer',
